@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+  <center>
+    <h1>Rock Paper Scissors</h1></center>
+    <div class="grid-container">
+      <div id="left">
+        <h2>Your Choice</h2>
+        <pre>
+            <button id="rock" class="button"><img src="images/rock.png" alt="rock" width="72px"></button>
+
+            <button id="paper" class="button"><img src="images/paper.png" alt="paper" width="69px"></button>
+
+            <button id="scissors" class="button"><img src="images\scissors.png" alt="scissors" width="70px"></button>
+        </pre>
+    </div>
+      <div id="right">
+        <h2>Machine's Choice</h2>
+        <pre>
+            <button id="rock" class="button"><img src="images\rock.png" alt="rock" width="72px"></button>
+
+            <button id="paper" class="button"><img src="images\paper.png" alt="paper" width="69px"></button>
+
+            <button id="scissors" class="button"><img src="images\scissors.png" alt="scissors" width="70px"></button>
+        </pre> 
+      </div>
+      <br>
+      <div id="result">
+        <h2>Result</h2>
+        <div id="user-choice"></div>
+        <div id="computer-choice"></div>
+        <div id="result"></div>
+      </div>
+    </div>
+
+    <script>
+      const rock = document.getElementById('rock');
+      const paper = document.getElementById('paper');
+      const scissors = document.getElementById('scissors');
+      const userChoiceDiv = document.getElementById('user-choice');
+      const computerChoiceDiv = document.getElementById('computer-choice');
+      const resultDiv = document.getElementById('result');
+
+      function getComputerChoice() {
+        const choices = ['rock', 'paper', 'scissors'];
+        return choices[Math.floor(Math.random() * choices.length)];
+      }
+
+      function playRound(userChoice) {
+        const computerChoice = getComputerChoice();
+
+        // userChoiceDiv.innerHTML = `<img src="userChoiceDiv.png" alt="${userChoice}">`;
+        // computerChoiceDiv.innerHTML = `<img src="computerChoiceDiv.png" alt="${computerChoice}">`;
+
+        if (userChoice === computerChoice) {
+          resultDiv.innerHTML = 'Tie!';
+        } else if ((userChoice === 'rock' && computerChoice === 'scissors') ||
+                   (userChoice === 'paper' && computerChoice === 'rock') ||
+                   (userChoice === 'scissors' && computerChoice === 'paper')) {
+          resultDiv.innerHTML = 'You win!';
+          addGlitter();
+        } else {
+          resultDiv.innerHTML = 'Computer wins!';
+        }
+      }
+
+      rock.addEventListener('click', () => playRound('rock'));
+      paper.addEventListener('click', () => playRound('paper'));
+      scissors.addEventListener('click', () => playRound('scissors'));
+    </script>
+</body>
+</html>

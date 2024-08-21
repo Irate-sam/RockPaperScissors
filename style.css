@@ -1,0 +1,30 @@
+
+        .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-gap: 10px;
+        }
+        .button {
+          width: 90px;
+          height: 90px;
+          border-radius: 30px;
+          justify-self: center;
+        }
+        #left {
+          grid-column: 1;
+          padding-left: 400px;
+         
+        }
+        #right {
+          grid-column: 2;
+          padding-left: 220px;
+        }
+        #result{
+         padding-left: 0px;
+        }
+        body{
+            background-color: rgb(229, 252, 229);
+        }
+       
+      
